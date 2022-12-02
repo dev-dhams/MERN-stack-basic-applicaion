@@ -1,4 +1,4 @@
-# MY-STORE (Weekend Project)
+# MY-STORE (MERN-Stack basic app)
 
 MY-STORE is a open source full-stack web application project. build using React.js, Redux.js, Express.js and MongoDB.
 
