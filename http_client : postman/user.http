@@ -1,0 +1,34 @@
+@host=http://localhost:4000
+@admin_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM3NjEyZDM4Y2NlZDIyYWRiNjQ4MWM1In0sImlhdCI6MTY2ODY4MjQ3OCwiZXhwIjoxNjY5MDQyNDc4fQ.S5D5ZeylmQdfWkcrmxMFhIBITCrDHO5Ek7ah25mURgU
+@seller_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM3NjEyZDU4Y2NlZDIyYWRiNjQ4MWM4In0sImlhdCI6MTY2ODc1NDM1MSwiZXhwIjoxNjY5MTE0MzUxfQ.fgDaZBqMywVTh-7NrmJ-XKERrUZrsOM8AtzygGoTy7Q
+@buyyer_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjM3NjEyZDc4Y2NlZDIyYWRiNjQ4MWNiIn0sImlhdCI6MTY2ODY4NDc0MywiZXhwIjoxNjY5MDQ0NzQzfQ.szfSEvMIDQUC9u37pMeciFnjsC5bj9z9seQl5RQ_mYU
+
+
+### Get user list
+### Only admin
+GET {{host}}/api/users HTTP/1.1
+x-auth-token: {{admin_token}}
+
+### Change user permission (SELLER)
+POST {{host}}/api/permissions HTTP/1.1
+x-auth-token: {{admin_token}}
+Content-Type: application/json
+
+{   
+    "userId" : "637612d58cced22adb6481c8",
+    "permissions" : {
+        "admin": false,
+        "buyer": true,
+        "seller": true
+    } 
+}
+
+### Change user status (ACTIVE : true or false)
+POST {{host}}/api/activation HTTP/1.1
+x-auth-token: {{admin_token}}
+Content-Type: application/json
+
+{   
+    "userId" : "637612d78cced22adb6481cb",
+    "isActive" : true
+}

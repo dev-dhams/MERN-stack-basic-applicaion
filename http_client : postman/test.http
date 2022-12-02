@@ -1,0 +1,7 @@
+@host=http://localhost:4000
+
+### @route  POST api/crop
+GET {{host}}/api/auth HTTP/1.1
+
+### @route  POST api/crop
+GET {{host}}/api/product HTTP/1.1
